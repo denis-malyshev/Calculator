@@ -5,7 +5,8 @@ public interface StateAcceptor<
 
         Input extends InputContext,
         Output extends OutputContext,
-        Command extends StateTransitionCommand<Output>> {
+        Error extends Exception,
+        Command extends StateTransitionCommand<Output,Error>> {
 
     Command accept(Input inputContext);
 }

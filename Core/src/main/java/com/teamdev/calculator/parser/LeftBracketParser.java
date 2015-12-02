@@ -1,9 +1,6 @@
 package com.teamdev.calculator.parser;
 
-import com.teamdev.calculator.EvaluationCommand;
-import com.teamdev.calculator.EvaluationStack;
-import com.teamdev.calculator.ExpressionParser;
-import com.teamdev.calculator.MathExpressionReader;
+import com.teamdev.calculator.*;
 
 import java.util.ArrayDeque;
 
@@ -25,6 +22,7 @@ public class LeftBracketParser implements ExpressionParser {
             return new EvaluationCommand() {
                 @Override
                 public void execute(EvaluationStack outputContext) {
+
                     outputContext.getOperatorStack().push(new ArrayDeque<>());
                     outputContext.getOperandStack().push(new ArrayDeque<>());
                 }

@@ -1,5 +1,6 @@
 package com.teamdev.calculator;
 
+
 import org.junit.Test;
 
 public class CalculationErrorTest {
