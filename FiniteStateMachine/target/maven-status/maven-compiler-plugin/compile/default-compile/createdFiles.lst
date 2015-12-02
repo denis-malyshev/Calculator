@@ -1,6 +1,0 @@
-com\teamdev\fsm\StateTransitionCommand.class
-com\teamdev\fsm\AbstractFiniteStateMachine.class
-com\teamdev\fsm\OutputContext.class
-com\teamdev\fsm\InputContext.class
-com\teamdev\fsm\StateAcceptor.class
-com\teamdev\fsm\TransitionMatrix.class
