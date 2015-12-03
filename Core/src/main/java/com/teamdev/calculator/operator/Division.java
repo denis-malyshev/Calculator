@@ -1,6 +1,8 @@
 package com.teamdev.calculator.operator;
 
 
+import com.teamdev.calculator.CalculationError;
+
 public class Division extends AbstractBinaryOperator {
 
     public Division(Priority priority) {
@@ -8,7 +10,9 @@ public class Division extends AbstractBinaryOperator {
     }
 
     @Override
-    public double execute(double leftOperand, double rightOperand) {
+    public double execute(double leftOperand, double rightOperand) throws CalculationError {
+        if (rightOperand == 0)
+            throw new CalculationError("Division by zero");
         return leftOperand / rightOperand;
     }
 }

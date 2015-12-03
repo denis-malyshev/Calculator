@@ -23,14 +23,14 @@ public class EvaluationStack implements OutputContext {
         return operatorStack;
     }
 
-    public void popAllOperators() {
+    public void popAllOperators() throws CalculationError {
         while (!operatorStack.peek().isEmpty()) {
 
             popOperator();
         }
     }
 
-    private void popOperator() {
+    private void popOperator() throws CalculationError {
         final Double rightOperand = operandStack.peek().pop();
         final Double leftOperand = operandStack.peek().pop();
 
@@ -41,7 +41,7 @@ public class EvaluationStack implements OutputContext {
         operandStack.peek().push(result);
     }
 
-    public void pushBinaryOperator(BinaryOperator operator) {
+    public void pushBinaryOperator(BinaryOperator operator) throws CalculationError {
 
         while (!operatorStack.peek().isEmpty() &&
                 (operatorStack.peek().peek().compareTo(operator) > -1)) {

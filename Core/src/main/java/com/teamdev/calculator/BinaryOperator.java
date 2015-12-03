@@ -1,5 +1,5 @@
 package com.teamdev.calculator;
 
 public interface BinaryOperator extends Comparable<BinaryOperator> {
-    double execute(double leftOperand, double rightOperand);
+    double execute(double leftOperand, double rightOperand) throws CalculationError;
 }

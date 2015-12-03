@@ -9,6 +9,10 @@ public class CalculationError extends Exception {
         this.errorPosition = errorPosition;
     }
 
+    public CalculationError(String message) {
+        super(message);
+    }
+
     public int getErrorPosition() {
         return errorPosition;
     }

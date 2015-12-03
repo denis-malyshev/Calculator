@@ -3,7 +3,7 @@ package com.teamdev.calculator.parser;
 
 import com.teamdev.calculator.*;
 
-public class RightBracket implements ExpressionParser {
+public class RightBracketParser implements ExpressionParser {
 
     @Override
     public EvaluationCommand accept(MathExpressionReader reader) {
@@ -22,12 +22,12 @@ public class RightBracket implements ExpressionParser {
                 @Override
                 public void execute(EvaluationStack outputContext) throws CalculationError {
 
-                    if (outputContext.getOperandStack().size() < 2) {
-                        throw new CalculationError("Unexpected right bracket.", reader.getPosition());
+                    if (outputContext.getOperandStack().size() == 1) {
+                        throw new CalculationError("Unexpected left bracket.", reader.getPosition());
                     }
 
                     outputContext.popAllOperators();
-                    double result=outputContext.getOperandStack().pop().pop();
+                    double result = outputContext.getOperandStack().pop().pop();
                     outputContext.getOperandStack().peek().push(result);
                     outputContext.getOperatorStack().pop();
                 }

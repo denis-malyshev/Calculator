@@ -1,8 +1,5 @@
 package com.teamdev.calculator.parser;
-import com.teamdev.calculator.EvaluationCommand;
-import com.teamdev.calculator.EvaluationStack;
-import com.teamdev.calculator.ExpressionParser;
-import com.teamdev.calculator.MathExpressionReader;
+import com.teamdev.calculator.*;
 
 public class EndOfExpressionParser implements ExpressionParser {
 
@@ -15,7 +12,12 @@ public class EndOfExpressionParser implements ExpressionParser {
 
         return new EvaluationCommand() {
             @Override
-            public void execute(EvaluationStack outputContext) {
+            public void execute(EvaluationStack outputContext) throws CalculationError {
+
+                if (outputContext.getOperandStack().size() > 1) {
+                    throw new CalculationError("Unexpected right bracket.", reader.getPosition());
+                }
+
                 outputContext.popAllOperators();
             }
         };

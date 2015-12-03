@@ -15,7 +15,7 @@ public class ExpressionParserFactory {
                 put(NUMBER, new NumberParser());
                 put(BINARY_OPERATOR, new BinaryOperatorParser());
                 put(LEFT_BRACKET, new LeftBracketParser());
-                put(RIGHT_BRACKET, new RightBracket());
+                put(RIGHT_BRACKET, new RightBracketParser());
                 put(FINISH, new EndOfExpressionParser());
             }};
 

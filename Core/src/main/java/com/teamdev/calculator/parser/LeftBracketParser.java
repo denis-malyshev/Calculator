@@ -22,7 +22,6 @@ public class LeftBracketParser implements ExpressionParser {
             return new EvaluationCommand() {
                 @Override
                 public void execute(EvaluationStack outputContext) {
-
                     outputContext.getOperatorStack().push(new ArrayDeque<>());
                     outputContext.getOperandStack().push(new ArrayDeque<>());
                 }
