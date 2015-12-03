@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Run {
     public static void main(String[] args) throws Exception {
-        if (args.length != 0) {
+        if (args[0].equals("gui")) {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
@@ -15,7 +15,8 @@ public class Run {
                     new CalculatorFrame();
                 }
             });
-        } else {
+        }
+        if (args[0].equals("console")) {
             final MathExpressionCalculator calculator = new MathExpressionCalculator();
             while (true) {
                 Scanner scanner = new Scanner(System.in);
