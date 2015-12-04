@@ -1,39 +1,39 @@
 package com.teamdev.calculator;
 
-import com.teamdev.fsm.AbstractFiniteStateMachine;
+import com.teamdev.calculator.parser.ExpressionParser;
 import com.teamdev.calculator.parser.ExpressionParserFactory;
+import com.teamdev.fsm.AbstractFiniteStateMachine;
+
+import java.util.Map;
 
 public class MathExpressionCalculator extends AbstractFiniteStateMachine<
 
         MathExpressionReader,
-        EvaluationStack,
+        EvaluationContext,
         CalculationState,
         EvaluationCommand,
         ExpressionParser,
         CalculationMatrix,
-        CalculationError,
-        Double>
+        CalculationError>
 
         implements Calculator {
 
     final private ExpressionParserFactory parserFactory = new ExpressionParserFactory();
     final private CalculationMatrix matrix = new CalculationMatrix();
+    final private EvaluationContext evaluationContext = new EvaluationContext();
 
     @Override
-    public double calculate(String expression) throws CalculationError {
-        return run(new MathExpressionReader(expression), new EvaluationStack());
+    public void calculate(String expression) throws CalculationError {
+        run(new MathExpressionReader(expression), evaluationContext);
     }
 
-
-    @Override
-    protected Double prepareResult(EvaluationStack context) {
-        return context.getOperandStack().peek().pop();
+    public Map<String, Double> getVariables() {
+        return evaluationContext.getVariables();
     }
 
     @Override
     protected void deadlock(MathExpressionReader context) throws CalculationError {
-        throw new CalculationError("Invalid input value on " + context.getPosition()
-                + " position", context.getPosition());
+        throw new CalculationError("", -1);
     }
 
     @Override
@@ -46,4 +46,10 @@ public class MathExpressionCalculator extends AbstractFiniteStateMachine<
         return matrix;
     }
 
+    public static void main(String[] args) throws Exception {
+        final MathExpressionCalculator calculator = new MathExpressionCalculator();
+        final Map<String, Double> variables = calculator.evaluationContext.getVariables();
+        calculator.calculate("a = (2+2); b = a + 5; out( sum (a,b) );");
+        System.out.println(variables.get("a"));
+    }
 }

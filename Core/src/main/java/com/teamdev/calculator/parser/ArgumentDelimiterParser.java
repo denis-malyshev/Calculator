@@ -2,14 +2,22 @@ package com.teamdev.calculator.parser;
 
 import com.teamdev.calculator.*;
 
-public class EndOfExpressionParser implements ExpressionParser {
+public class ArgumentDelimiterParser implements ExpressionParser {
+
+    public static final String DELIMITER = ",";
 
     @Override
     public EvaluationCommand accept(MathExpressionReader reader) {
 
-        if (reader.hasMoreElements()) {
+        if (!reader.hasMoreElements()) {
             return null;
         }
+
+        if (!reader.getRemainingExpression().startsWith(DELIMITER)) {
+            return null;
+        }
+
+        reader.movePosition(DELIMITER.length());
 
         return new EvaluationCommand() {
             @Override

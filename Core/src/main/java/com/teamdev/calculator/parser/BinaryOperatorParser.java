@@ -1,4 +1,5 @@
 package com.teamdev.calculator.parser;
+
 import com.teamdev.calculator.*;
 import com.teamdev.calculator.operator.BinaryOperatorFactory;
 
@@ -24,8 +25,8 @@ public class BinaryOperatorParser implements ExpressionParser {
 
                 return new EvaluationCommand() {
                     @Override
-                    public void execute(EvaluationStack outputContext) throws CalculationError {
-                        outputContext.pushBinaryOperator(operator);
+                    public void execute(EvaluationContext outputContext) throws CalculationError {
+                        outputContext.getEvaluationStack().pushBinaryOperator(operator);
                     }
                 };
             }

@@ -1,55 +1,72 @@
 package com.teamdev.calculator;
 
-import com.teamdev.fsm.OutputContext;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class EvaluationStack implements OutputContext {
+public class EvaluationStack {
 
-    private Deque<Deque<Double>> operandStack = new ArrayDeque<>();
-    private Deque<Deque<BinaryOperator>> operatorStack = new ArrayDeque<>();
+    private Deque<Double> operandStack = new ArrayDeque<>();
+    private Deque<BinaryOperator> operatorStack = new ArrayDeque<>();
+
+    private final EvaluationStack parent;
+    private final EvaluationContextCloser closer;
+
+
 
     public EvaluationStack() {
-        operandStack.push(new ArrayDeque<>());
-        operatorStack.push(new ArrayDeque<>());
+        this(null, null);
     }
 
-    public Deque<Deque<Double>> getOperandStack() {
+    public EvaluationStack(EvaluationStack parent, EvaluationContextCloser closer) {
+        this.parent = parent;
+        this.closer = closer;
+    }
+
+    public Deque<Double> getOperandStack() {
         return operandStack;
     }
 
-    public Deque<Deque<BinaryOperator>> getOperatorStack() {
+    public Deque<BinaryOperator> getOperatorStack() {
         return operatorStack;
     }
 
+    public EvaluationStack getParent() {
+        return parent;
+    }
+
+    public EvaluationContextCloser getCloser() {
+        return closer;
+    }
+
     public void popAllOperators() throws CalculationError {
-        while (!operatorStack.peek().isEmpty()) {
+        while (!operatorStack.isEmpty()) {
 
             popOperator();
         }
     }
 
     private void popOperator() throws CalculationError {
-        final Double rightOperand = operandStack.peek().pop();
-        final Double leftOperand = operandStack.peek().pop();
 
-        final BinaryOperator binaryOperator = operatorStack.peek().pop();
+        final Double rightOperand = operandStack.pop();
+        final Double leftOperand = operandStack.pop();
+
+        final BinaryOperator binaryOperator = operatorStack.pop();
 
         final double result = binaryOperator.execute(leftOperand, rightOperand);
 
-        operandStack.peek().push(result);
+        operandStack.push(result);
     }
 
     public void pushBinaryOperator(BinaryOperator operator) throws CalculationError {
 
-        while (!operatorStack.peek().isEmpty() &&
-                (operatorStack.peek().peek().compareTo(operator) > -1)) {
+        while (!operatorStack.isEmpty() &&
+                (operatorStack.peek().compareTo(operator) > -1)) {
 
             popOperator();
 
         }
 
-        operatorStack.peek().push(operator);
+        operatorStack.push(operator);
     }
+
 }

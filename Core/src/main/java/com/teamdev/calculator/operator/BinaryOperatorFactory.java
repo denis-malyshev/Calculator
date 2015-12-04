@@ -6,9 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.HIGH;
-import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.LOW;
-import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.MEDIUM;
+import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.*;
 
 public class BinaryOperatorFactory {
 
@@ -16,7 +14,6 @@ public class BinaryOperatorFactory {
             new HashMap<String, BinaryOperator>() {{
 
                 put("+", new Plus(LOW));
-                put("-", new Minus(LOW));
 
                 put("*", new Multiply(MEDIUM));
                 put("/", new Division(MEDIUM));
