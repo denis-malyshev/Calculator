@@ -30,7 +30,9 @@ public class EvaluationContext implements OutputContext {
         variables.put(name, value);
     }
 
-    public double readVariable(String name) {
+    public double readVariable(String name) throws CalculationError {
+        if(variables.get(name)==null)
+            throw new CalculationError("No such variable.");
         return variables.get(name);
     }
 

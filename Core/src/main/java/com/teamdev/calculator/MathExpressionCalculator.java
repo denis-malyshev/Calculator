@@ -31,7 +31,7 @@ public class MathExpressionCalculator extends AbstractFiniteStateMachine<
 
     @Override
     protected void deadlock(MathExpressionReader context) throws CalculationError {
-        throw new CalculationError("", -1);
+        throw new CalculationError("Invalid input data.", 0);
     }
 
     @Override
@@ -47,7 +47,6 @@ public class MathExpressionCalculator extends AbstractFiniteStateMachine<
     public static void main(String[] args) throws Exception {
         final MathExpressionCalculator calculator = new MathExpressionCalculator();
         final Map<String, Double> variables = calculator.evaluationContext.getVariables();
-        calculator.calculate("expression = sqrt (sum (23, 2, 31));");
-        System.out.println(variables.get("expression"));
+        calculator.calculate("expres");
     }
 }

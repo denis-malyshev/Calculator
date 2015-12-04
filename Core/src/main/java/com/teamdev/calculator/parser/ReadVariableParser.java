@@ -31,7 +31,7 @@ public class ReadVariableParser implements ExpressionParser {
 
         return new EvaluationCommand() {
             @Override
-            public void execute(EvaluationContext outputContext) {
+            public void execute(EvaluationContext outputContext) throws CalculationError {
                 final double result = outputContext.readVariable(variableName);
 
                 outputContext.getEvaluationStack().getOperandStack().push(result);

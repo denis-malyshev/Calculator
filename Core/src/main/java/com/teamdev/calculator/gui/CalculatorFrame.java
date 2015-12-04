@@ -47,6 +47,7 @@ public class CalculatorFrame extends JFrame {
                 try {
                     result.setText("");
                     calculator.calculate(expressionArea.getText());
+                    result.setCaretPosition(0);
                 } catch (CalculationError calculationError) {
                     JOptionPane.showMessageDialog(getParent(), calculationError.getMessage());
                     expressionArea.setCaretPosition(calculationError.getErrorPosition());
