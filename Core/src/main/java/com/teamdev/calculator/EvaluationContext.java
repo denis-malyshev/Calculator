@@ -8,8 +8,10 @@ import java.util.Map;
 public class EvaluationContext implements OutputContext {
 
     public static final EvaluationContextCloser DEFAULT_CLOSER = new EvaluationContextCloser() {
+
         @Override
         public void closeContext(EvaluationStack stack) throws CalculationError {
+
             stack.popAllOperators();
 
             stack.getParent().getOperandStack().push(

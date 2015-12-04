@@ -3,7 +3,6 @@ package com.teamdev.calculator;
 import com.teamdev.fsm.MachineState;
 
 public enum CalculationState implements MachineState {
-
     START,
     NUMBER,
     BINARY_OPERATOR,

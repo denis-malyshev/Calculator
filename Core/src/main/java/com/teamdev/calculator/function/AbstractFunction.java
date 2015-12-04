@@ -2,6 +2,7 @@ package com.teamdev.calculator.function;
 
 import com.teamdev.calculator.Function;
 
+
 public abstract class AbstractFunction implements Function {
 
     private final int minArgumentCount;

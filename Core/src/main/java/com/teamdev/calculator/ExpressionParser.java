@@ -1,9 +1,5 @@
-package com.teamdev.calculator.parser;
+package com.teamdev.calculator;
 
-import com.teamdev.calculator.CalculationError;
-import com.teamdev.calculator.EvaluationCommand;
-import com.teamdev.calculator.EvaluationContext;
-import com.teamdev.calculator.MathExpressionReader;
 import com.teamdev.fsm.StateAcceptor;
 
 public interface ExpressionParser extends StateAcceptor<

@@ -2,6 +2,7 @@ package com.teamdev.calculator.parser;
 
 import com.teamdev.calculator.*;
 import com.teamdev.calculator.operator.BinaryOperatorFactory;
+import com.teamdev.calculator.ExpressionParser;
 
 public class BinaryOperatorParser implements ExpressionParser {
 

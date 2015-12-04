@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.*;
+import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.HIGH;
+import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.LOW;
+import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.MEDIUM;
 
 public class BinaryOperatorFactory {
 

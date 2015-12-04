@@ -1,6 +1,10 @@
 package com.teamdev.calculator.parser;
 
 import com.teamdev.calculator.*;
+import com.teamdev.calculator.EvaluationCommand;
+import com.teamdev.calculator.EvaluationContext;
+import com.teamdev.calculator.ExpressionParser;
+import com.teamdev.calculator.MathExpressionReader;
 
 public class EndOfLineParser implements ExpressionParser {
 
@@ -22,7 +26,6 @@ public class EndOfLineParser implements ExpressionParser {
         return new EvaluationCommand() {
             @Override
             public void execute(EvaluationContext outputContext) throws CalculationError {
-
                 if (outputContext.getEvaluationStack().getParent() != null) {
                     outputContext.closeCurrentContext();
                 }

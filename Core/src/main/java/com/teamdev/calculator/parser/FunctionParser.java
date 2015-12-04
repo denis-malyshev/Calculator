@@ -2,6 +2,7 @@ package com.teamdev.calculator.parser;
 
 import com.teamdev.calculator.*;
 import com.teamdev.calculator.function.FunctionFactory;
+import com.teamdev.calculator.ExpressionParser;
 
 import java.util.Deque;
 import java.util.Optional;
@@ -32,7 +33,6 @@ public class FunctionParser implements ExpressionParser {
                         outputContext.setActualCloser(new EvaluationContextCloser() {
                             @Override
                             public void closeContext(EvaluationStack stack) throws CalculationError {
-
                                 stack.popAllOperators();
 
                                 final Deque<Double> operandStack = stack.getOperandStack();

@@ -1,6 +1,7 @@
 package com.teamdev.calculator.parser;
 
 import com.teamdev.calculator.*;
+import com.teamdev.calculator.ExpressionParser;
 
 public class ClosingBracketParser implements ExpressionParser {
 
@@ -22,6 +23,7 @@ public class ClosingBracketParser implements ExpressionParser {
         return new EvaluationCommand() {
             @Override
             public void execute(EvaluationContext outputContext) throws CalculationError {
+
                 outputContext.closeCurrentContext();
             }
         };

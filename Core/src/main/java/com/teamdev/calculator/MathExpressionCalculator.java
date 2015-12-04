@@ -1,11 +1,9 @@
 package com.teamdev.calculator;
 
-import com.teamdev.calculator.parser.ExpressionParser;
 import com.teamdev.calculator.parser.ExpressionParserFactory;
 import com.teamdev.fsm.AbstractFiniteStateMachine;
 
 import java.util.Map;
-
 public class MathExpressionCalculator extends AbstractFiniteStateMachine<
 
         MathExpressionReader,
@@ -49,7 +47,6 @@ public class MathExpressionCalculator extends AbstractFiniteStateMachine<
     public static void main(String[] args) throws Exception {
         final MathExpressionCalculator calculator = new MathExpressionCalculator();
         final Map<String, Double> variables = calculator.evaluationContext.getVariables();
-        //calculator.calculate("expression = sqrt (sum (2+3, 2, 3-1) * sin (90));");
         calculator.calculate("expression = sqrt (sum (23, 2, 31));");
         System.out.println(variables.get("expression"));
     }

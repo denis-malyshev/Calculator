@@ -2,6 +2,7 @@ package com.teamdev.calculator.function;
 
 import com.teamdev.calculator.Function;
 
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -13,9 +14,9 @@ public class FunctionFactory {
 
                 put("sum", new Sum());
                 put("out", new Out());
+
                 put("sin", new Sin());
                 put("sqrt", new Sqrt());
-
             }};
 
 

@@ -25,7 +25,7 @@ public class FunctionTest {
 
     @Test
     public void calculateExpressionWithNestedFunctions() throws Exception {
-        calculator.calculate(" expression = 2 * sum ( sqrt (sum (2+3, 2, 3-1) * sin (90)), 5 , 0, 2));");
+        calculator.calculate(" expression = 2 * sum ( sqrt (sum (2+3, 2, 3-1) * sin (90)), 5, 0, 2));");
         assertEquals("This expression must be calculated true.", 20.0, variables.get("expression"), 0);
     }
 }

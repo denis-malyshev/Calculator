@@ -2,6 +2,7 @@ package com.teamdev.calculator.parser;
 
 import com.teamdev.calculator.EvaluationCommand;
 import com.teamdev.calculator.EvaluationContext;
+import com.teamdev.calculator.ExpressionParser;
 import com.teamdev.calculator.MathExpressionReader;
 
 public class AssignValueParser implements ExpressionParser {

@@ -1,6 +1,7 @@
 package com.teamdev.calculator.parser;
 
 import com.teamdev.calculator.CalculationState;
+import com.teamdev.calculator.ExpressionParser;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +12,6 @@ public class ExpressionParserFactory {
 
     private final Map<CalculationState, ExpressionParser> parsers =
             new HashMap<CalculationState, ExpressionParser>() {{
-
                 put(NUMBER, new NumberParser());
                 put(BINARY_OPERATOR, new BinaryOperatorParser());
                 put(OPENING_BRACKET, new OpeningBracketParser());
