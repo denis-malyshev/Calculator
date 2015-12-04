@@ -13,6 +13,8 @@ public class FunctionFactory {
 
                 put("sum", new Sum());
                 put("out", new Out());
+                put("sin", new Sin());
+                put("sqrt", new Sqrt());
 
             }};
 

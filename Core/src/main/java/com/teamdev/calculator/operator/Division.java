@@ -12,7 +12,7 @@ public class Division extends AbstractBinaryOperator {
     @Override
     public double execute(double leftOperand, double rightOperand) throws CalculationError {
         if (rightOperand == 0)
-            throw new CalculationError("Division by zero");
+            throw new CalculationError("Division by zero.");
         return leftOperand / rightOperand;
     }
 }

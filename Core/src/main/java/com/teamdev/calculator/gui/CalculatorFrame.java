@@ -19,8 +19,7 @@ public class CalculatorFrame extends JFrame {
 
     public CalculatorFrame() {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        setSize(250, 150);
-        setResizable(false);
+        setSize(400, 250);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         setLocation((dimension.width - getWidth()) / 2, (dimension.height - getHeight()) / 2);
@@ -46,6 +45,7 @@ public class CalculatorFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    result.setText("");
                     calculator.calculate(expressionArea.getText());
                 } catch (CalculationError calculationError) {
                     JOptionPane.showMessageDialog(getParent(), calculationError.getMessage());
