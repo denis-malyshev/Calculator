@@ -1,11 +1,10 @@
-package com.teamdev.calculator;
+package com.teamdev.fsm.test;
 
 import com.teamdev.fsm.StateAcceptor;
 
 public interface ExpressionParser extends StateAcceptor<
         MathExpressionReader,
-        EvaluationStack,
-        CalculationError,
+        EvaluationContext,
         EvaluationCommand> {
 
     @Override

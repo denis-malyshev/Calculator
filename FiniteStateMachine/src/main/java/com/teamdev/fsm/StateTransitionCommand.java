@@ -1,9 +1,8 @@
 package com.teamdev.fsm;
 
 public interface StateTransitionCommand<
-        Context extends OutputContext,
-        Error extends Exception> {
+        Context extends OutputContext> {
 
-    void execute(Context outputContext) throws Error;
+    void execute(Context outputContext);
 
 }

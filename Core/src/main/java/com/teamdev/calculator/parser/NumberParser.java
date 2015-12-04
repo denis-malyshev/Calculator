@@ -1,6 +1,6 @@
-package com.teamdev.calculator.parser;
+package com.teamdev.fsm.test.parser;
 
-import com.teamdev.calculator.*;
+import com.teamdev.fsm.test.*;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -32,8 +32,8 @@ public class NumberParser implements ExpressionParser {
 
         return new EvaluationCommand() {
             @Override
-            public void execute(EvaluationStack outputContext) {
-                outputContext.getOperandStack().peek().push(result.doubleValue());
+            public void execute(EvaluationContext outputContext) {
+                outputContext.getEvaluationStack().getOperandStack().push(result.doubleValue());
             }
         };
     }

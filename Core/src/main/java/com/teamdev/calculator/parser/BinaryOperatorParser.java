@@ -1,6 +1,7 @@
-package com.teamdev.calculator.parser;
-import com.teamdev.calculator.*;
-import com.teamdev.calculator.operator.BinaryOperatorFactory;
+package com.teamdev.fsm.test.parser;
+
+import com.teamdev.fsm.test.*;
+import com.teamdev.fsm.test.operator.BinaryOperatorFactory;
 
 public class BinaryOperatorParser implements ExpressionParser {
 
@@ -24,8 +25,8 @@ public class BinaryOperatorParser implements ExpressionParser {
 
                 return new EvaluationCommand() {
                     @Override
-                    public void execute(EvaluationStack outputContext) throws CalculationError {
-                        outputContext.pushBinaryOperator(operator);
+                    public void execute(EvaluationContext outputContext) {
+                        outputContext.getEvaluationStack().pushBinaryOperator(operator);
                     }
                 };
             }

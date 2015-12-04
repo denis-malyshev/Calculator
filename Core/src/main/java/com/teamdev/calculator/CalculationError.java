@@ -1,4 +1,4 @@
-package com.teamdev.calculator;
+package com.teamdev.fsm.test;
 
 public class CalculationError extends Exception {
 
@@ -7,10 +7,6 @@ public class CalculationError extends Exception {
     public CalculationError(String message, int errorPosition) {
         super(message);
         this.errorPosition = errorPosition;
-    }
-
-    public CalculationError(String message) {
-        super(message);
     }
 
     public int getErrorPosition() {

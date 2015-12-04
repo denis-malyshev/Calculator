@@ -1,11 +1,12 @@
-package com.teamdev.calculator.parser;
+package com.teamdev.fsm.test.parser;
 
-import com.teamdev.calculator.*;
+import com.teamdev.fsm.test.CalculationState;
+import com.teamdev.fsm.test.ExpressionParser;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.teamdev.calculator.CalculationState.*;
+import static com.teamdev.fsm.test.CalculationState.*;
 
 public class ExpressionParserFactory {
 
@@ -14,8 +15,16 @@ public class ExpressionParserFactory {
 
                 put(NUMBER, new NumberParser());
                 put(BINARY_OPERATOR, new BinaryOperatorParser());
-                put(LEFT_BRACKET, new LeftBracketParser());
-                put(RIGHT_BRACKET, new RightBracketParser());
+                put(OPENING_BRACKET, new OpeningBracketParser());
+                put(CLOSING_BRACKET, new ClosingBracketParser());
+                put(FUNCTION, new FunctionParser());
+                put(ARGUMENT_DELIMITER, new ArgumentDelimiterParser());
+                put(END_OF_LINE, new EndOfLineParser());
+
+                put(READ_VARIABLE, new ReadVariableParser());
+                put(WRITE_VARIABLE, new WriteVariableParser());
+                put(ASSIGN_VALUE, new AssignValueParser());
+
                 put(FINISH, new EndOfExpressionParser());
             }};
 

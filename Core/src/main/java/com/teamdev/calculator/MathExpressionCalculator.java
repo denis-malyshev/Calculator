@@ -1,18 +1,17 @@
-package com.teamdev.calculator;
+package com.teamdev.fsm.test;
 
 import com.teamdev.fsm.AbstractFiniteStateMachine;
-import com.teamdev.calculator.parser.ExpressionParserFactory;
+import com.teamdev.fsm.test.parser.ExpressionParserFactory;
 
 public class MathExpressionCalculator extends AbstractFiniteStateMachine<
 
         MathExpressionReader,
-        EvaluationStack,
+        EvaluationContext,
         CalculationState,
         EvaluationCommand,
         ExpressionParser,
         CalculationMatrix,
-        CalculationError,
-        Double>
+        CalculationError>
 
         implements Calculator {
 
@@ -20,20 +19,14 @@ public class MathExpressionCalculator extends AbstractFiniteStateMachine<
     final private CalculationMatrix matrix = new CalculationMatrix();
 
     @Override
-    public double calculate(String expression) throws CalculationError {
-        return run(new MathExpressionReader(expression), new EvaluationStack());
+    public void calculate(String expression) throws CalculationError {
+        run(new MathExpressionReader(expression), new EvaluationContext());
     }
 
-
-    @Override
-    protected Double prepareResult(EvaluationStack context) {
-        return context.getOperandStack().peek().pop();
-    }
 
     @Override
     protected void deadlock(MathExpressionReader context) throws CalculationError {
-        throw new CalculationError("Invalid input value on " + context.getPosition()
-                + " position", context.getPosition());
+        throw new CalculationError("", -1);
     }
 
     @Override
@@ -46,4 +39,8 @@ public class MathExpressionCalculator extends AbstractFiniteStateMachine<
         return matrix;
     }
 
+    public static void main(String[] args) throws Exception {
+        final MathExpressionCalculator calculator = new MathExpressionCalculator();
+        calculator.calculate("a = (2+1); b = a + 5; out( sum (a,b) );");
+    }
 }

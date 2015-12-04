@@ -1,6 +1,6 @@
-package com.teamdev.calculator.operator;
+package com.teamdev.fsm.test.operator;
 
-import com.teamdev.calculator.BinaryOperator;
+import com.teamdev.fsm.test.BinaryOperator;
 
 public abstract class AbstractBinaryOperator implements BinaryOperator {
 

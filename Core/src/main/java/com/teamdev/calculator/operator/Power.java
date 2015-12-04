@@ -1,4 +1,4 @@
-package com.teamdev.calculator.operator;
+package com.teamdev.fsm.test.operator;
 
 public class Power extends AbstractBinaryOperator {
 

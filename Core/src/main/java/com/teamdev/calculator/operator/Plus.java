@@ -1,4 +1,6 @@
-package com.teamdev.calculator.operator;
+package com.teamdev.fsm.test.operator;
+
+import static com.teamdev.fsm.test.operator.AbstractBinaryOperator.Priority.LOW;
 
 public class Plus extends AbstractBinaryOperator {
 

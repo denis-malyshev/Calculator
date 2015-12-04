@@ -1,4 +1,4 @@
-package com.teamdev.calculator;
+package com.teamdev.fsm.test;
 
 import com.teamdev.fsm.InputContext;
 

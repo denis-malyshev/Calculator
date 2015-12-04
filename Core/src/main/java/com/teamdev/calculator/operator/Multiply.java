@@ -1,4 +1,8 @@
-package com.teamdev.calculator.operator;
+package com.teamdev.fsm.test.operator;
+
+import com.teamdev.fsm.test.BinaryOperator;
+
+import static com.teamdev.fsm.test.operator.AbstractBinaryOperator.Priority.MEDIUM;
 
 public class Multiply extends AbstractBinaryOperator {
 

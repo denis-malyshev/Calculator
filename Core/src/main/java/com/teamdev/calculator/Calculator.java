@@ -1,7 +1,7 @@
-package com.teamdev.calculator;
+package com.teamdev.fsm.test;
 
 public interface Calculator {
 
-    double calculate(String expression) throws CalculationError;
+    void calculate(String expression) throws CalculationError;
 
 }

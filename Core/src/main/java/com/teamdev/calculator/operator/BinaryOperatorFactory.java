@@ -1,14 +1,14 @@
-package com.teamdev.calculator.operator;
+package com.teamdev.fsm.test.operator;
 
-import com.teamdev.calculator.BinaryOperator;
+import com.teamdev.fsm.test.BinaryOperator;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.HIGH;
-import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.LOW;
-import static com.teamdev.calculator.operator.AbstractBinaryOperator.Priority.MEDIUM;
+import static com.teamdev.fsm.test.operator.AbstractBinaryOperator.Priority.HIGH;
+import static com.teamdev.fsm.test.operator.AbstractBinaryOperator.Priority.LOW;
+import static com.teamdev.fsm.test.operator.AbstractBinaryOperator.Priority.MEDIUM;
 
 public class BinaryOperatorFactory {
 
@@ -16,10 +16,8 @@ public class BinaryOperatorFactory {
             new HashMap<String, BinaryOperator>() {{
 
                 put("+", new Plus(LOW));
-                put("-", new Minus(LOW));
 
                 put("*", new Multiply(MEDIUM));
-                put("/", new Division(MEDIUM));
 
                 put("^", new Power(HIGH));
             }};

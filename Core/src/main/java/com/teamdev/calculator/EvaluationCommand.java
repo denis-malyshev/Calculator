@@ -1,9 +1,9 @@
-package com.teamdev.calculator;
+package com.teamdev.fsm.test;
 
 import com.teamdev.fsm.StateTransitionCommand;
 
-public interface EvaluationCommand extends StateTransitionCommand<EvaluationStack,CalculationError> {
+public interface EvaluationCommand extends StateTransitionCommand<EvaluationContext> {
 
     @Override
-    void execute(EvaluationStack outputContext) throws CalculationError;
+    void execute(EvaluationContext outputContext);
 }
