@@ -47,6 +47,6 @@ public class MathExpressionCalculator extends AbstractFiniteStateMachine<
     public static void main(String[] args) throws Exception {
         final MathExpressionCalculator calculator = new MathExpressionCalculator();
         final Map<String, Double> variables = calculator.evaluationContext.getVariables();
-        calculator.calculate("expres");
+        calculator.calculate("a=2;");
     }
 }

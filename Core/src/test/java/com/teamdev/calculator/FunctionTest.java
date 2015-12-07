@@ -13,7 +13,7 @@ public class FunctionTest {
 
     @Test
     public void calculateSum() throws Exception {
-        calculator.calculate(" a= (sum (2,4,6,8));");
+        calculator.calculate(" a = (sum (2,4,6,8));");
         assertEquals("This expression must be calculated true.", 20.0, variables.get("a"), 0);
     }
 
@@ -25,6 +25,9 @@ public class FunctionTest {
 
     @Test
     public void calculateExpressionWithNestedFunctions() throws Exception {
+        //sum (2+3, 2, 3-1) * sin (90) = 9
+        //sqrt (sum (2+3, 2, 3-1) * sin (90)) = 3
+        //sum ( sqrt (sum (2+3, 2, 3-1) * sin (90)), 5, 0, 2) = 10
         calculator.calculate(" expression = 2 * sum ( sqrt (sum (2+3, 2, 3-1) * sin (90)), 5, 0, 2));");
         assertEquals("This expression must be calculated true.", 20.0, variables.get("expression"), 0);
     }

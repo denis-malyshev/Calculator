@@ -50,7 +50,7 @@ public class CalculatorFrame extends JFrame {
                     result.setCaretPosition(0);
                 } catch (CalculationError calculationError) {
                     JOptionPane.showMessageDialog(getParent(), calculationError.getMessage());
-                    expressionArea.setCaretPosition(calculationError.getErrorPosition());
+                    expressionArea.setCaretPosition(expressionArea.getText().length());
                     expressionArea.getCaret().setVisible(true);
                 }
             }
